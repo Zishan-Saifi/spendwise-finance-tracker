@@ -34,7 +34,13 @@ import {
   DollarSign,
   Wallet,
   Shield,
-  BookOpen
+  BookOpen,
+  FileText,   // <-- Yeh yahan hona zaroori hai!
+  Receipt,
+  File,
+  Monitor,
+  Video,
+  Camera
 } from 'lucide-react';
 
 const iconMap = {
