@@ -294,9 +294,15 @@ const Budgets = () => {
               const spent = Number(b.spent) || 0;
               const remaining = limit - spent;
               const percent = limit > 0 ? (spent / limit) * 100 : 0;
-              const catName = b.category?.name || 'General';
-              const catIcon = b.category?.icon || 'Tag';
-              const catColor = b.category?.color || '#8b5cf6';
+              // Category ID ko safely extract karein chahe woh object ho ya string
+              const catId = typeof b.category === 'object' && b.category !== null ? b.category._id : b.category;
+              
+              // String comparison se exact match ensure karein
+              const matchedCat = categories.find(c => String(c._id) === String(catId));
+
+              const catName = matchedCat?.name || (typeof b.category === 'object' ? b.category?.name : 'General');
+              const catIcon = matchedCat?.icon || (typeof b.category === 'object' ? b.category?.icon : 'Tag');
+              const catColor = matchedCat?.color || (typeof b.category === 'object' ? b.category?.color : '#8b5cf6');
 
               return (
                 <div key={b._id} className="py-4 border-b border-slate-100 last:border-b-0">
