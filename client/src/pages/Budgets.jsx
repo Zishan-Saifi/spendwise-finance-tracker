@@ -64,14 +64,37 @@ const iconMap = {
   DollarSign,
   Wallet,
   Shield,
-  BookOpen
+  BookOpen,
+  FileText,
+  Receipt,
+  File,
+  Monitor,
+  Video,
+  Camera,
+  // Direct Aliases for Database / Category Name mismatches
+  bill: DollarSign,
+  bills: DollarSign,
+  dollar: DollarSign,
+  money: DollarSign,
+  cash: DollarSign,
+  entertainment: Film,
+  movie: Film,
+  movies: Film,
+  health: Activity,
+  food: Utensils,
+  transport: Car,
+  shopping: ShoppingBag,
+  salary: DollarSign,
+  freelance: Briefcase,
+  investments: PiggyBank
 };
 
 const CategoryIcon = ({ name, color, size = 18 }) => {
   const getIcon = () => {
     if (!name) return Tag;
+    const cleanName = String(name).toLowerCase().trim();
     const match = Object.keys(iconMap).find(
-      (k) => k.toLowerCase() === String(name).toLowerCase()
+      (k) => k.toLowerCase() === cleanName
     );
     return match ? iconMap[match] : Tag;
   };
