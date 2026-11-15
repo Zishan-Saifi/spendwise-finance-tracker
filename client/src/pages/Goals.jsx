@@ -23,7 +23,7 @@ import {
   Wallet
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api/goals';
+const API_BASE = 'https://spendwise-finance-tracker.onrender.com/api/goals';
 
 const ICON_MAP = {
   Target,
