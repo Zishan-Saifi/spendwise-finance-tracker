@@ -1001,7 +1001,7 @@ export default function Transactions() {
                       <button
                         key={id}
                         type="button"
-                        onClick={() => setRecPaymentMethod(id)}
+                        onClick={() => setPaymentMethod(id)}
                         className={`flex flex-col items-center justify-center p-2 rounded-xl border text-[11px] font-medium transition-all cursor-pointer ${
                           isSelected
                             ? 'border-purple-600 bg-purple-50/50 text-purple-700 shadow-sm'
