@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables & database passwords (Sensitive)
+.env
+.env.local
+.env.production
+server/.env
+
+# Build files
+client/dist/
+dist/
+
+# Logs & system files
+*.log
+.DS_Store
