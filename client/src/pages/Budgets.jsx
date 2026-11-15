@@ -134,8 +134,14 @@ const Budgets = () => {
   const fetchCategories = async () => {
     try {
       const res = await api.get('/categories');
-      const data = res.data?.data || res.data || [];
-      setCategories(Array.isArray(data) ? data : []);
+      // Backend response ke sabhi possible formats ko handle karne ke liye:
+      const rawData = res.data?.data || res.data?.categories || res.data || [];
+      const categoryList = Array.isArray(rawData) ? rawData : [];
+      
+      // Agar aap chahte hain ki budget me sirf 'expense' categories hi dikhein:
+      const expenseCategories = categoryList.filter(c => c.type === 'expense' || !c.type);
+      
+      setCategories(expenseCategories.length > 0 ? expenseCategories : categoryList);
     } catch (err) {
       console.error('Error fetching categories:', err);
     }
