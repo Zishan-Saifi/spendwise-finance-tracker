@@ -625,21 +625,35 @@ export default function Transactions() {
 
                     {/* 3. Start Date */}
                     <input
-                      type="date"
+                      type={startDate ? "date" : "text"}
+                      onFocus={(e) => {
+                        e.target.type = "date";
+                        try { e.target.showPicker(); } catch (err) {}
+                      }}
+                      onBlur={(e) => {
+                        if (!e.target.value) e.target.type = "text";
+                      }}
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
-                      placeholder="mm/dd/yyyy"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      placeholder="Start Date"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                       title="Start Date"
                     />
 
                     {/* 4. End Date */}
                     <input
-                      type="date"
+                      type={endDate ? "date" : "text"}
+                      onFocus={(e) => {
+                        e.target.type = "date";
+                        try { e.target.showPicker(); } catch (err) {}
+                      }}
+                      onBlur={(e) => {
+                        if (!e.target.value) e.target.type = "text";
+                      }}
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
-                      placeholder="mm/dd/yyyy"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      placeholder="End Date"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
                       title="End Date"
                     />
                   </div>
