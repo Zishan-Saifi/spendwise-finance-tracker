@@ -322,11 +322,24 @@ const CustomBarTooltip = ({ active, payload, label }) => {
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(Number(e.target.value))}
-            className="bg-white border border-gray-200 text-gray-700 px-3.5 py-2 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+            className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
           >
             {MONTH_NAMES.map((m, idx) => (
               <option key={m} value={idx + 1}>
-                {m} {selectedYear}
+                {m}
+              </option>
+            ))}
+          </select>
+
+          {/* Year Selector */}
+          <select
+            value={selectedYear}
+            onChange={(e) => setSelectedYear(Number(e.target.value))}
+            className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-200 px-3 py-2 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+          >
+            {[2024, 2025, 2026, 2027, 2028].map((y) => (
+              <option key={y} value={y}>
+                {y}
               </option>
             ))}
           </select>
